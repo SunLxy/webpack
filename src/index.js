@@ -3,6 +3,7 @@ import './styles/index.css';
 import vcodeIcon from "./assets/vcode.jpg"
 import XML from "./assets/xml.xml"
 import json5 from "./assets/json5.json5"
+import printFun from "./print"
 
 function component() {
   const element = document.createElement('div');
@@ -26,6 +27,13 @@ function component() {
   const json5Xml = document.createElement("div")
   json5Xml.innerHTML = ` JSON5内容 ${json5Content}`
   element.appendChild(json5Xml)
+
+
+  // 按钮
+  const btn = document.createElement("button")
+  btn.onclick = printFun
+  btn.innerHTML = "点击"
+  element.appendChild(btn)
 
   return element;
 }

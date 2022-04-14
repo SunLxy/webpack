@@ -2,9 +2,13 @@ const path = require("path")
 const json5 = require("json5")
 module.exports = {
   mode: "development",
-  entry: path.join(process.cwd(), "src/index.js"),
+  // entry: path.join(process.cwd(), "src/index.js"),
+  entry: {
+    main: path.join(process.cwd(), "src/index.js"),
+    print: path.join(process.cwd(), "src/print.js")
+  },
   output: {
-    filename: "main.js",
+    filename: "[name].js",
     path: path.join(process.cwd(), "dist")
   },
   module: {
