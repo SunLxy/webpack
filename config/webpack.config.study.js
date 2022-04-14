@@ -1,5 +1,7 @@
 const path = require("path")
 const json5 = require("json5")
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
 module.exports = {
   mode: "development",
   // entry: path.join(process.cwd(), "src/index.js"),
@@ -9,7 +11,9 @@ module.exports = {
   },
   output: {
     filename: "[name].js",
-    path: path.join(process.cwd(), "dist")
+    path: path.join(process.cwd(), "dist"),
+    // 清理 dist 文件夹
+    clean: true,
   },
   module: {
     rules: [
@@ -38,5 +42,10 @@ module.exports = {
         }
       },
     ]
-  }
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      title: 'webpack',
+    }),
+  ],
 }
