@@ -1,6 +1,7 @@
 const path = require("path")
 const json5 = require("json5")
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { WebpackManifestPlugin } = require('webpack-manifest-plugin');
 
 module.exports = {
   mode: "development",
@@ -47,5 +48,10 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: 'webpack',
     }),
+    new WebpackManifestPlugin({
+      fileName: "assets-manifest.json",
+      publicPath: "./"
+    })
+
   ],
 }
